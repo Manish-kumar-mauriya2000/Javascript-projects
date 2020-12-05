@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>MAGIC CALCULATION</title>
+    <style>
+        .main{
+            border: 2px solid blue;
+            margin-left: 250px;
+            padding-left: 50px;
+            padding-top: 50px;
+            padding-right: 50px;
+            padding-bottom: 50px;
+            margin-top: 75px;
+        }
+    </style>
+    
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <form name="c1" action="">
+                NUM1: <input type="number" name="n1" id="n1" onkeyUp="calc()" class="form-control"><br><br>
+                NUM2: <input type="number" name="n2" id="n2" onkeyUp="calc()" class="form-control"><br><br>
+                NUM3: <input type="number" name="n3" id="n3" onkeyUp="calc()" class="form-control"><br><br>
+                TOTAL: <input type="number" name="total" id="total" onkeyUp="calc()" class="form-control">
+
+            </form>
+        </div>
+
+    </div>
+    <script>
+        function calc(){
+            
+       
+        var num1= parseInt(document.c1.n1.value);
+        var num2= parseInt(document.c1.n2.value);
+        var num3= parseInt(document.c1.n3.value);
+        var total= parseInt(document.c1.total.value);
+        if(num3!=""){
+            var res1=num1+num2;
+            var bal1=total-res1;
+            document.c1.n3.value=bal1;
+        }
+          else if(num2!=""){
+            var res2=num1+num3;
+            var bal2=total-res2;
+            document.c1.n2.value=bal2;
+        }
+           else if(num1!=""){
+            var res3=num2+num3;
+            var bal3=total-res3;
+            document.c1.n1.value=bal3;
+        }
+             }
+    
+    </script>
+</body>
+
+</html>

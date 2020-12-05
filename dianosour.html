@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body{
+            background-image: url(img/background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+
+        #animal {
+            position: absolute;
+            right: 40px;
+            top: 600px;
+            animation:block 3s infinite linear;
+        }
+         #animal1 {
+            position: absolute;
+            right: 40px;
+            top: 600px;
+            animation:block 3s infinite linear;
+        }
+        @keyframes block{
+            from{right: 0px;}
+            to{right: 1700px;}
+        }
+
+        #stone {
+            position: relative;
+            transition: .6s ease-in;
+            display: none;
+            transform: translate3d(0px, 0px, 0px);
+            width: 100%;
+            height: 100%;
+
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+       <div id="backImg">
+        <div id="animal">
+            <img src="img/run1.gif" alt="animal" style="width: 100px; height: 100px;">
+           
+        </div>
+        <div id="animal1">
+            <img src="img/run1.gif" alt="animal" style="width: 200px; height: 200px;">
+           
+        </div>
+        <div id="stone">
+            <img src="img/stone1.gif" alt="stone" style="width: 100px; height: 100px;">
+
+        </div>
+        
+</div>
+    </div>
+
+    <script>
+        document.addEventListener("click", (event) => {
+            document.getElementById('stone').style.display = "block";
+            document.getElementById('stone').style.top = event.pageY + "px";
+            document.getElementById('stone').style.left = event.pageX + "px";
+            setTimeout(function() {
+                    document.getElementById('stone').style.top = "600px";
+                    setTimeout(function() {
+                            document.getElementById('stone').style.display = "none";
+                        },
+                        1000);
+                },
+                150);
+
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

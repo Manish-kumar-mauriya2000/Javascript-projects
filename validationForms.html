@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>VALIDATION</title>
+    <style>
+        .forms-div {
+            border: 2px solid blue;
+            margin-left: 200px;
+            margin-right: 100px;
+            margin-top: 75px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 50px;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+
+        <div class="forms-div">
+            <form name="f1" action="">
+                NAME : <input type="text" name="name" class="form-control"><br /><br />
+                PHONE: <input type="text" id="phone" name="phone" class="form-control"><br /><br />
+                EMAIL: <input type="text" name="mail" class="form-control"><br><br>
+                DOB  : <input type="text" name="dob" class="form-control"><br><br>
+                <input type="button" value="SUBMIT" class="btn btn-success offset-sm-5" onclick="return validate()">
+            </form>
+            <p id="demo"></p>
+        </div>
+
+    </div><!-- /.container -->
+    <script>
+        function validate() {
+            var name = document.f1.name.value;
+            var phone = document.f1.phone.value;
+            var mail = document.f1.mail.value;
+            var dob = document.f1.dob.value;
+            var phonevar = /^\d{10}$/;
+            var mailvar = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            var dobvar=/^(0?[1-9]|12[0-9]|3[01])\/(0?[1-9]|1[012]{2})\/([0-9]{4})$/;
+
+
+
+            if (isNaN(name)==true) {
+                alert("Input ok! try another name!!\n"+name);
+                document.write(name);
+                
+
+            } else {
+                alert("Incorrect input character!!");
+
+            }
+            if (phone.match(phonevar)) {
+                alert("Your enterd valid phone number! Try another number.. \n"+phone);
+
+            } else {
+                alert("Incorecct phone number");
+
+            }
+
+            if (mail.match(mailvar)) {
+                alert("Your mail is valid..\n"+mail);
+               
+            } else {
+                alert("invalid email");
+                
+            }
+            
+            if(dob.match(dobvar)){
+                alert("Your Date of birth is valid..\n"+dob);
+                return true;
+            }
+            else{
+                alert("Invalid date of birth!!!");
+                return false;
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>FLOATING BALL</title>
+    <style>
+        #container {
+
+            position: absolute;
+            border: 2px solid black;
+            background-color: aqua;
+        }
+
+        .ball {
+            background-color: red;
+            position: absolute;
+            display: inline-block;
+            border-radius: 50%;
+        }
+
+        /*
+        span {
+            position: absolute;
+            border-radius: 50%;
+            background-color: chocolate;
+            width: 50px;
+            height: 50px;
+            border-color: black;
+
+
+            animation: bounce;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-duration: 2s;
+        }
+
+        @keyframes bounce {
+
+            0% {
+                left: 0%;
+            }
+
+            40% {
+                left: 92%;
+
+            }
+
+            80% {
+                left: 0%;
+
+            }
+
+            100% {
+                left: 90%;
+
+            }
+*/
+
+        /*
+            from {
+                transform: translate3d(0px, 0, 0px);
+
+            }
+
+            to {
+                transform: translate3d(0px, 280px, 180px);
+            }
+
+        }
+*/
+
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+
+    <script>
+        //        function floating() {
+        //            setInterval(function() {
+        //
+        //                document.getElementById('ball').style.height = parseInt(Math.floor(Math.random() * 60)) + 50 + "px";
+        //                document.getElementById('ball').style.width = parseInt(Math.floor(Math.random() * 20)) + 60 + "px";
+        //                document.getElementById('ball').style.backgroundColor = '#' + parseInt(Math.random() * 0xffffff).toString(16);
+        //
+        //
+        //            }, 1000);
+        //        }
+        //        floating();
+
+        //        var i = 0;
+        //
+        //
+        //
+        //        function createBubble() {
+        //            var n = document.getElementById("container");
+        //            var create = document.createElement('span');
+        //            var ballRadius = 10;
+        //            var x = n.width / 2;
+        //            var y = n.height - 30;
+        //            var dx = 2;
+        //            var dy = -2;
+        //            
+        //
+        //            if (i < 30) {
+        //                if(x + dx > )
+
+
+        //                document.getElementById('ball').style.height = parseInt(Math.floor(Math.random() * 60)) + 50 + "px";
+        //                document.getElementById('ball').style.width = parseInt(Math.floor(Math.random() * 20)) + 60 + "px";
+        //                create.style.backgroundColor = '#' + parseInt(Math.random() * 0xffffff).toString(16);
+        //                create.style.right = Math.random() * screenX + "px";
+        //                create.style.top = Math.random() * screenY + "px";
+        //                n.append(create);
+        //                i++;
+        //            }
+        //        }
+        var canvas = {
+            element: document.getElementById('container'),
+            width: 800,
+            height: 400,
+            initialize: function() {
+                this.element.style.width = this.width + 'px';
+                this.element.style.height = this.height + 'px';
+                document.body.appendChild(this.element);
+            }
+        };
+
+
+        function create( dx, dy) {
+            var i;
+          
+           var newBall = Object.create(this);
+            newBall.dx = dx;
+            newBall.dy = dy;
+            newBall.width = 40;
+            newBall.height = 40;
+            newBall.element = document.createElement('div');
+            newBall.element.style.backgroundColor = '#' + parseInt(Math.random() * 0xffffff).toString(16);
+            newBall.element.style.width = parseInt(Math.floor(Math.random() * 60)) + 50 + "px";;
+            newBall.element.style.height = parseInt(Math.floor(Math.random() * 20)) + 60 + "px";;
+            newBall.element.className += ' ball';
+            newBall.width = parseInt(newBall.element.style.width);
+            newBall.height = parseInt(newBall.element.style.height);
+            canvas.element.appendChild(newBall.element);
+           
+            return newBall;
+        }
+        
+         function moveTo(x, y) {
+                this.element.style.left = x + 'px';
+                this.element.style.top = y + 'px';
+            }
+        
+            function changeDirectionIfNecessary(x, y) {
+                if (x < 0 || x > canvas.width - this.width) {
+                    this.dx = -this.dx;
+                }
+                if (y < 0 || y > canvas.height - this.height) {
+                    this.dy = -this.dy;
+                }
+            }
+             function draw(x, y) {
+                this.moveTo(x, y);
+                var ball = this;
+                setTimeout(function() {
+                    ball.changeDirectionIfNecessary(x, y);
+                    ball.draw(x + ball.dx, y + ball.dy);
+                }, 10);
+            }
+        
+
+        canvas.initialize();
+    
+        var ball1 = create( 4, 3);
+        var ball2 = create( 1, 5);
+        var ball3 = create( 2, 2);
+        var ball4 = create( 7, 4);
+        var ball5 = create( 3, 5);
+        var ball6 = create(4, 2);
+        ball1.draw(70, 0);
+        ball2.draw(20, 200);
+        ball3.draw(300, 330);
+        ball4.draw(150, 50);
+        ball5.draw(90, 0);
+        ball6.draw(200, 10);
+            
+         
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>Bubble</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        span {
+            position: absolute;
+            border-radius: 50%;
+            top: 250px;
+            animation:animate infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes animate {
+
+            0% {
+                left: 0%;
+            }
+
+            40% {
+                left: 92%;
+
+            }
+
+            80% {
+                left: 0%;
+
+            }
+
+            100% {
+                left: 90%;
+
+            }
+
+            0% {
+                background-color: yellow;
+                left: 700px;
+            }
+
+            25% {
+                background-color: red;
+                top: 30px;
+            }
+
+            50% {
+                background-color: blue;
+                left: 30px;
+
+            }
+
+            100% {
+                background-color: chartreuse;
+                bottom: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="panel">
+    </div>
+    <script>
+        var i = 0;
+
+        function createBubble() {
+            var n1 = document.querySelector("#panel");
+            var create = document.createElement('span');
+
+            if (i < 10) {
+                var size = Math.random() * 50;
+                create.style.height = size + "px";
+                create.style.width =  size + "px";
+                create.style.backgroundColor = '#' + parseInt(Math.random() * 0xffffff).toString(16);
+                create.style.left = Math.random() * innerHeight+ "px";
+                create.style.top = Math.random() * innerWidth + "px";
+                n1.append(create);
+                i++;
+            }
+        }
+        setInterval(createBubble, 500);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta description="">
+    <meta keywords="">
+    <title>JUMPING BALL</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #ball {
+
+            transition: .6s ease-in;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: rebeccapurple;
+            position: relative;
+            top: 500px;
+            border-color: 4px solid black;
+        }
+
+        body,
+        html {
+            background-image: url(img/background.jpg);
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="ball"></div>
+    </div>
+
+    <script>
+        document.addEventListener("click", (event) => {
+            document.getElementById('ball').style.top = event.pageY + "px";
+            //            document.getElementById('ball').style.left = event.pageX + "px";
+            setTimeout(function() {
+                    document.getElementById('ball').style.top = "500px";
+//                    document.getElementById('ball').style.height = parseInt(Math.floor(Math.random() * 60)) + 30 + "px";
+                    document.getElementById('ball').style.backgroundColor = '#' + parseInt(Math.random() * 0xffffff).toString(16);
+
+                },
+                500);
+
+        });
+
+    </script>
+</body>
+
+</html>

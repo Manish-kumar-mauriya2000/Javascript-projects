@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>RUNNING </title>
+    <style>
+        body {
+            background-image: url(img/background2.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        #person {
+            top: 530px;
+            position: relative;
+            left: 150px;
+
+        }
+
+        #pillar {
+            position: relative;
+            top: 320px;
+            left: 100px;
+            animation: block 5s infinite linear;
+        }
+
+        /*
+         #pillar1 {
+            position: relative;
+            top: 40px;
+            left: 300px;
+            animation: block1 5s infinite linear;
+        }
+*/
+
+
+        @keyframes block {
+            0% {
+                left: 1500px
+            }
+
+            100% {
+                left: -20px
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="game">
+        <div id="person">
+            <img src="img/roboatrunning.gif" height="150px" alt="running">
+        </div>
+        <div id="pillar">
+            <img src="img/building2.jpg" height="200px" alt="pillar">
+
+        </div>
+
+    </div>
+
+    <script>
+        function jump() {
+            setInterval(function() {
+                    var height = Math.floor(Math.random() * (300 - 10)) + 10;
+                    var width = Math.floor(Math.random() * (300 - 30)) + 30;
+                    var h1 = document.getElementById('person').offsetLeft;
+                    var h2 = document.getElementById('pillar').offsetLeft;
+                    var h3 = h2 - h1;
+                    //document.write(h1 + "\n" + h2);
+                    if (h3 <= 200) {
+                        person.style.top =  "330px";
+
+                        //pillar.style.width = Math.floor(Math.random() * 60) + 10;
+
+                        setTimeout(function() {
+                                person.style.top = "530px";
+                            },
+                            1180);
+                    }
+
+                },
+                20);
+
+        };
+
+
+        jump();
+
+    </script>
+</body>
+
+</html>

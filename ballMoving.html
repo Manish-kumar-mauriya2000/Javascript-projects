@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+  
+<head>
+<title>Move to Click Position</title>
+<style type="text/css">
+body {
+    background-color: #FFF;
+    margin: 30px;
+    margin-top: 10px;
+}
+#contentContainer {
+    width: 2000px;
+    height: 1000px;
+    overflow: hidden;
+}
+#thing {
+    position: relative;
+    left: 50px;
+    top: 50px;
+    transition: left .10s ease-in, top .10s ease-in;
+}
+.dot {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+</style>
+</head>
+ 
+<body>
+<div id="contentContainer">
+    <div id="thing" class="dot"></div>
+</div>
+ 
+<script src="//www.kirupa.com/prefixfree.min.js"></script>
+<script>
+var theThing = document.querySelector("#thing");
+var container = document.querySelector("#contentContainer");
+ 
+container.addEventListener("click", getClickPosition, false);
+ 
+function getClickPosition(e) {
+    var parentPosition = getPosition(e.currentTarget);
+    var xPosition = e.clientX - parentPosition.x - (theThing.clientWidth);
+    var yPosition = e.clientY - parentPosition.y - (theThing.clientHeight);
+     
+    theThing.style.left = xPosition;
+    theThing.style.top = yPosition ;
+}
+ 
+function getPosition(el) {
+  var xPos = 0;
+  var yPos = 0;
+ 
+  while (el) {
+    if (el.tagName == "BODY") {
+
+      var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+      var yScroll = el.scrollTop || document.documentElement.scrollTop;
+ 
+      xPos += (el.offsetLeft - xScroll + el.clientLeft);
+      yPos += (el.offsetTop - yScroll + el.clientTop);
+    } else {
+
+      xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+      yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+    }
+ 
+    el = el.offsetParent;
+  }
+  return {
+    x: xPos,
+    y: yPos
+  };
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("div").animate({
+                    left: '250px'
+                }, function () {
+                    $("div").css("background-color", "red")
+                });
+                $("div").animate({
+                    bottom: '250px'
+                }, function () {
+                    $("div").css("background-color", "blue")
+                });
+
+                $("div").animate({
+                    left: '10px'
+                }, function () {
+                    $("div").css("background-color", "black")
+                });
+
+                $("div").animate({
+                    top: '30px'
+                }, function () {
+                    $("div").css("background-color", "green")
+                });
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button>START ANIMATE</button><br><br>
+
+    <div style="border-radius: 50%; background-color: sandybrown; height: 100px; width: 100px; position: absolute;">
+    </div>
+</body>
